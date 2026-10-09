@@ -599,3 +599,143 @@ a:focus-visible {
   color: var(--color-muted);
   text-align: center;
 }
+
+/* ===================================
+   9. Самостоятельные доработки
+   =================================== */
+
+/* ---- Фото товара в карточке ---- */
+.product-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  margin: calc(var(--space-md) * -1) calc(var(--space-md) * -1) 0;
+  background: linear-gradient(135deg, var(--color-surface-accent), var(--color-surface));
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.product-card__image-placeholder {
+  font-size: 48px;
+  line-height: 1;
+}
+
+/* ---- Категория в карточке ---- */
+.product-card__category {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: var(--color-primary);
+  background-color: var(--color-surface-accent);
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Старая цена (зачёркнутая) ---- */
+.product-card__price-old {
+  margin-right: var(--space-xs);
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+/* ---- Отзывы ---- */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.review-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 87, 184, 0.1);
+  transform: translateY(-2px);
+}
+
+.review-card__rating {
+  margin: 0;
+  font-size: 18px;
+  color: #f5b400;
+  letter-spacing: 2px;
+}
+
+.review-card__text {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.review-card__author {
+  margin: 0;
+  margin-top: auto;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+/* ---- FAQ ---- */
+.faq {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.faq-item {
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  transition: border-color 0.2s;
+}
+
+.faq-item[open] {
+  border-color: var(--color-primary);
+}
+
+.faq-item__question {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-text);
+  list-style: none;
+}
+
+.faq-item__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item__question::before {
+  content: "▸ ";
+  color: var(--color-primary);
+  margin-right: var(--space-xs);
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.faq-item[open] .faq-item__question::before {
+  transform: rotate(90deg);
+}
+
+.faq-item__question:hover {
+  color: var(--color-primary);
+}
+
+.faq-item__answer {
+  margin: var(--space-sm) 0 0;
+  color: var(--color-muted);
+}
+
+/* ---- Улучшенный hover карточек ---- */
+.product-card {
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.product-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 87, 184, 0.12);
+  transform: translateY(-3px);
+}

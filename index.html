@@ -20,6 +20,8 @@
           <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#reviews">Отзывы</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#faq">FAQ</a></li>
         </ul>
       </nav>
     </div>
@@ -49,13 +51,21 @@
 
         <article class="product-card product-card--discount">
           <span class="product-card__badge">Скидка</span>
+          <div class="product-card__image">
+            <span class="product-card__image-placeholder">📦</span>
+          </div>
+          <span class="product-card__category">Электроника</span>
           <h3 class="product-card__title">Товар 1</h3>
           <p class="product-card__description">Краткое описание учебного товара.</p>
-          <p class="product-card__price">Цена: 1000 руб.</p>
+          <p class="product-card__price">Цена: <s class="product-card__price-old">1200 руб.</s> 1000 руб.</p>
           <button class="button button--primary product-card__button" type="button" data-product="Товар 1">Заказать</button>
         </article>
 
         <article class="product-card">
+          <div class="product-card__image">
+            <span class="product-card__image-placeholder">🎧</span>
+          </div>
+          <span class="product-card__category">Аудио</span>
           <h3 class="product-card__title">Товар 2</h3>
           <p class="product-card__description">Краткое описание учебного товара.</p>
           <p class="product-card__price">Цена: 1500 руб.</p>
@@ -64,6 +74,10 @@
 
         <article class="product-card product-card--featured">
           <span class="product-card__badge product-card__badge--new">Новинка</span>
+          <div class="product-card__image">
+            <span class="product-card__image-placeholder">💻</span>
+          </div>
+          <span class="product-card__category">Компьютеры</span>
           <h3 class="product-card__title">Товар 3</h3>
           <p class="product-card__description">Краткое описание учебного товара.</p>
           <p class="product-card__price">Цена: 2000 руб.</p>
@@ -77,6 +91,60 @@
       <h2>Информация для студентов</h2>
       <p>На следующих занятиях проект будет расширяться: появятся формы, модальные окна, Flex/Grid, БЭМ-структура и адаптивная версия сайта.</p>
     </aside>
+
+      <!-- Отзывы -->
+    <section class="section" id="reviews">
+      <h2>Отзывы покупателей</h2>
+      <div class="reviews-grid">
+
+        <article class="review-card">
+          <p class="review-card__rating" aria-label="Оценка 5 из 5">★★★★★</p>
+          <p class="review-card__text">Отличный магазин! Заказ оформил быстро, всё пришло вовремя. Буду заказывать ещё.</p>
+          <p class="review-card__author">— Анна К.</p>
+        </article>
+
+        <article class="review-card">
+          <p class="review-card__rating" aria-label="Оценка 5 из 5">★★★★★</p>
+          <p class="review-card__text">Понятный сайт, удобная навигация. Понравилось, что есть фильтры в каталоге.</p>
+          <p class="review-card__author">— Дмитрий П.</p>
+        </article>
+
+        <article class="review-card">
+          <p class="review-card__rating" aria-label="Оценка 4 из 5">★★★★☆</p>
+          <p class="review-card__text">Хороший выбор товаров. Хотелось бы больше способов оплаты, но в целом всё отлично.</p>
+          <p class="review-card__author">— Мария С.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>Частые вопросы</h2>
+      <div class="faq">
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Как оформить заказ?</summary>
+          <p class="faq-item__answer">Нажмите кнопку «Заказать» в карточке товара, заполните форму в модальном окне и подтвердите заявку. Мы свяжемся с вами для уточнения деталей.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Какие способы оплаты доступны?</summary>
+          <p class="faq-item__answer">Мы принимаем банковские карты, переводы по СБП и наличные при получении.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Сколько стоит доставка?</summary>
+          <p class="faq-item__answer">Доставка по городу — бесплатно при заказе от 3000 рублей. По России — от 300 рублей в зависимости от региона.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Можно ли вернуть товар?</summary>
+          <p class="faq-item__answer">Да, в течение 14 дней с момента получения, если товар не был в использовании и сохранена упаковка.</p>
+        </details>
+
+      </div>
+    </section>
 
     <p class="success-message" id="success-message" hidden>Форма успешно отправлена!</p>
   </main>
