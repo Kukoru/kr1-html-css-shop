@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Учебный интернет-магазин — главная страница.">
-  <title>Главная — Учебный интернет-магазин</title>
+  <meta name="description" content="Карточка товара учебного интернет-магазина.">
+  <title>Карточка товара — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -15,9 +15,9 @@
       <a class="site-header__logo" href="index.html">ShopProject</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="product.html">Товар</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
@@ -27,61 +27,95 @@
 
   <main>
 
-    <section class="hero">
-      <h1>Учебный интернет-магазин</h1>
-      <p>Это стартовая страница учебного frontend-проекта. В дальнейшем здесь будет разработан многостраничный сайт интернет-магазина.</p>
-      <a class="button button--primary" href="#popular">Перейти к товарам</a>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Товар</span>
+    </nav>
+
+    <section class="section">
+      <div class="product-detail">
+        <div class="product-detail__image">
+          <div class="product-detail__placeholder">Фото товара</div>
+        </div>
+
+        <div class="product-detail__info">
+          <span class="product-card__badge product-card__badge--new">Новинка</span>
+          <h1>Товар 1</h1>
+          <p class="product-detail__price">Цена: 1000 руб.</p>
+          <p class="product-detail__description">
+            Краткое описание учебного товара. Здесь размещается информация о назначении,
+            особенностях и преимуществах товара. Этот блок можно расширять на следующих занятиях.
+          </p>
+          <button class="button button--primary" type="button" data-product="Товар 1">Заказать</button>
+          <a class="button button--secondary" href="catalog.html">Вернуться в каталог</a>
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="advantages">
-      <h2>Преимущества проекта</h2>
-      <ul class="advantages-list">
-        <li>Понятная HTML-структура</li>
-        <li>Семантические блоки страницы</li>
-        <li>Внешний CSS-файл</li>
-        <li>Подготовка к многостраничному сайту</li>
-      </ul>
+    <section class="section">
+      <h2>Характеристики</h2>
+      <table class="product-table">
+        <caption>Характеристики товара</caption>
+        <thead>
+          <tr>
+            <th>Параметр</th>
+            <th>Значение</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Категория</td>
+            <td>Учебный товар</td>
+          </tr>
+          <tr>
+            <td>Цена</td>
+            <td>1000 руб.</td>
+          </tr>
+          <tr>
+            <td>Наличие</td>
+            <td>В наличии</td>
+          </tr>
+          <tr>
+            <td>Гарантия</td>
+            <td>12 месяцев</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
-    <section class="section" id="popular">
-      <h2>Популярные товары</h2>
+    <section class="section">
+      <h2>Похожие товары</h2>
       <div class="products-grid">
-
-        <article class="product-card product-card--discount">
-          <span class="product-card__badge">Скидка</span>
-          <h3 class="product-card__title">Товар 1</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
-          <p class="product-card__price">Цена: 1000 руб.</p>
-          <button class="button button--primary product-card__button" type="button" data-product="Товар 1">Заказать</button>
-        </article>
 
         <article class="product-card">
           <h3 class="product-card__title">Товар 2</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
+          <p class="product-card__description">Краткое описание.</p>
           <p class="product-card__price">Цена: 1500 руб.</p>
-          <button class="button button--primary product-card__button" type="button" data-product="Товар 2">Заказать</button>
+          <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
         </article>
 
-        <article class="product-card product-card--featured">
-          <span class="product-card__badge product-card__badge--new">Новинка</span>
+        <article class="product-card">
           <h3 class="product-card__title">Товар 3</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
+          <p class="product-card__description">Краткое описание.</p>
           <p class="product-card__price">Цена: 2000 руб.</p>
-          <button class="button button--primary product-card__button" type="button" data-product="Товар 3">Заказать</button>
+          <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
+        </article>
+
+        <article class="product-card">
+          <h3 class="product-card__title">Товар 4</h3>
+          <p class="product-card__description">Краткое описание.</p>
+          <p class="product-card__price">Цена: 2500 руб.</p>
+          <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
         </article>
 
       </div>
     </section>
 
-    <aside class="aside-info">
-      <h2>Информация для студентов</h2>
-      <p>На следующих занятиях проект будет расширяться: появятся формы, модальные окна, Flex/Grid, БЭМ-структура и адаптивная версия сайта.</p>
-    </aside>
-
     <p class="success-message" id="success-message" hidden>Форма успешно отправлена!</p>
+
   </main>
 
-  <footer class="site-footer" id="contacts">
+  <footer class="site-footer">
     <p>&copy; 2026 Учебный проект. Все права защищены.</p>
     <p>Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
