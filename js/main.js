@@ -2,7 +2,7 @@
 // Модальное окно заявки
 // ===================================
 const orderDialog = document.getElementById('order-dialog');
-const orderButtons = document.querySelectorAll('.product-card__button');
+const orderButtons = document.querySelectorAll('button.product-card__button');
 const closeDialogButton = document.getElementById('close-order-dialog');
 const selectedProductInput = document.getElementById('selected-product');
 
@@ -188,5 +188,71 @@ if (welcomeBanner && welcomeText) {
     welcomeClose.addEventListener('click', () => {
       welcomeBanner.hidden = true;
     });
+  }
+}
+
+// ===================================
+// Подстановка данных товара по URL-параметру ?id=N
+// ===================================
+const productsData = {
+  1: { title: 'Товар 1', price: 1000, image: 'images/product-1.jpg', category: 'Электроника', badge: 'Скидка' },
+  2: { title: 'Товар 2', price: 1500, image: 'images/product-2.jpg', category: 'Аудио', badge: null },
+  3: { title: 'Товар 3', price: 2000, image: 'images/product-3.jpg', category: 'Компьютеры', badge: 'Новинка' },
+  4: { title: 'Товар 4', price: 2500, image: 'images/product-4.jpg', category: 'Электроника', badge: null },
+  5: { title: 'Товар 5', price: 3000, image: 'images/product-5.jpg', category: 'Аудио', badge: null },
+  6: { title: 'Товар 6', price: 3500, image: 'images/product-6.jpg', category: 'Компьютеры', badge: null },
+};
+
+const productDetail = document.querySelector('.product-detail');
+
+if (productDetail) {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id') || '1';
+  const product = productsData[id];
+
+  if (product) {
+    // Меняем title страницы
+    document.title = `${product.title} — Учебный интернет-магазин`;
+
+    // Меняем фото
+    const img = productDetail.querySelector('.product-detail__image img');
+    if (img) {
+      img.src = product.image;
+      img.alt = product.title;
+    }
+
+    // Меняем заголовок
+    const h1 = productDetail.querySelector('h1');
+    if (h1) h1.textContent = product.title;
+
+    // Меняем цену
+    const price = productDetail.querySelector('.product-detail__price');
+    if (price) price.textContent = `Цена: ${product.price} руб.`;
+
+    // Меняем бейдж
+    const badge = productDetail.querySelector('.product-card__badge');
+    if (badge) {
+      if (product.badge) {
+        badge.textContent = product.badge;
+        badge.hidden = false;
+      } else {
+        badge.hidden = true;
+      }
+    }
+
+    // Меняем категорию в таблице
+    const categoryCell = document.querySelector('.product-table tbody tr:first-child td:last-child');
+    if (categoryCell) categoryCell.textContent = product.category;
+
+    // Меняем цену в таблице
+    const priceCell = document.querySelector('.product-table tbody tr:nth-child(2) td:last-child');
+    if (priceCell) priceCell.textContent = `${product.price} руб.`;
+
+    // Меняем data-product у кнопки «Заказать»
+    const orderBtn = productDetail.querySelector('[data-product]');
+    if (orderBtn) orderBtn.dataset.product = product.title;
+
+    // Показываем блок после подстановки
+    productDetail.classList.add('is-loaded');
   }
 }
