@@ -63,6 +63,19 @@ if (orderForm) {
     }
 
     // Успешная отправка
+    // Сохраняем заявку в localStorage
+    const orderData = {
+      name: orderForm.elements.name?.value || '',
+      email: orderForm.elements.email?.value || '',
+      product: selectedProductInput?.value || '',
+      date: new Date().toISOString(),
+    };
+    try {
+      localStorage.setItem('lastOrder', JSON.stringify(orderData));
+    } catch (e) {
+      console.warn('localStorage недоступен', e);
+    }
+
     if (successMessage) {
       successMessage.hidden = false;
     }
@@ -105,4 +118,75 @@ if (pageOrderForm) {
     }
     pageOrderForm.reset();
   });
+}
+
+// ===================================
+// Фильтр каталога
+// ===================================
+const filtersForm = document.getElementById('filters-form');
+
+if (filtersForm) {
+  const cards = document.querySelectorAll('.catalog-products .product-card');
+  const priceFrom = document.getElementById('price-from');
+  const priceTo = document.getElementById('price-to');
+
+  const applyFilters = () => {
+    // Собираем отмеченные категории
+    const checkedCategories = Array.from(
+      filtersForm.querySelectorAll('input[name="category"]:checked')
+    ).map((cb) => cb.value);
+
+    // Считываем диапазон цены
+    const minPrice = priceFrom && priceFrom.value ? Number(priceFrom.value) : 0;
+    const maxPrice = priceTo && priceTo.value ? Number(priceTo.value) : Infinity;
+
+    // Показываем/прячем карточки
+    cards.forEach((card) => {
+      const category = card.dataset.category;
+      const price = Number(card.dataset.price);
+
+      const categoryMatch =
+        checkedCategories.length === 0 || checkedCategories.includes(category);
+      const priceMatch = price >= minPrice && price <= maxPrice;
+
+      card.style.display = categoryMatch && priceMatch ? '' : 'none';
+    });
+  };
+
+  // Фильтрация при изменении чекбоксов
+  filtersForm.addEventListener('change', applyFilters);
+
+  // Фильтрация при нажатии «Применить»
+  filtersForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    applyFilters();
+  });
+}
+
+// ===================================
+// Приветствие при повторном визите
+// ===================================
+const welcomeBanner = document.getElementById('welcome-banner');
+const welcomeText = document.getElementById('welcome-text');
+const welcomeClose = document.getElementById('welcome-close');
+
+if (welcomeBanner && welcomeText) {
+  try {
+    const saved = localStorage.getItem('lastOrder');
+    if (saved) {
+      const data = JSON.parse(saved);
+      if (data.name) {
+        welcomeText.textContent = `${data.name}, рады видеть вас снова! Хотите оставить новую заявку?`;
+        welcomeBanner.hidden = false;
+      }
+    }
+  } catch (e) {
+    console.warn('Не удалось прочитать lastOrder', e);
+  }
+
+  if (welcomeClose) {
+    welcomeClose.addEventListener('click', () => {
+      welcomeBanner.hidden = true;
+    });
+  }
 }
