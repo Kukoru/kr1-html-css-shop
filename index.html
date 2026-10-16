@@ -5,20 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Учебный интернет-магазин — главная страница.">
   <title>Главная — Учебный интернет-магазин</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+  <div class="welcome-banner" id="welcome-banner" hidden>
+    <div class="welcome-banner__inner">
+      <span class="welcome-banner__text" id="welcome-text"></span>
+      <button class="welcome-banner__close" type="button" id="welcome-close" aria-label="Закрыть">×</button>
+    </div>
+  </div>
 
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="#reviews">Отзывы</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="#faq">FAQ</a></li>
@@ -27,7 +39,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
 
     <section class="hero">
       <h1>Учебный интернет-магазин</h1>

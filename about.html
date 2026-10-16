@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="О компании — учебный интернет-магазин.">
+  <title>О компании — Учебный интернет-магазин</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="product.html">Товар</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="about.html" aria-current="page">О нас</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">О компании</span>
+    </nav>
+
+    <section class="section">
+      <h1>О компании</h1>
+      <p>Учебный интернет-магазин — проект, созданный в рамках дисциплины «Фронтенд и бэкенд разработка». Это демонстрация современного подхода к вёрстке: семантическая разметка, CSS-переменные, Flex/Grid, БЭМ и доступность.</p>
+    </section>
+
+    <section class="section" id="values">
+      <h2>Наши принципы</h2>
+      <div class="values-grid">
+
+        <article class="value-card">
+          <div class="value-card__icon">🎯</div>
+          <h3 class="value-card__title">Качество</h3>
+          <p class="value-card__text">Каждый товар проверяется перед отправкой.</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-card__icon">⚡</div>
+          <h3 class="value-card__title">Скорость</h3>
+          <p class="value-card__text">Обработка заявок в течение 15 минут.</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-card__icon">🤝</div>
+          <h3 class="value-card__title">Доверие</h3>
+          <p class="value-card__text">Открытые условия и честные цены.</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-card__icon">♻️</div>
+          <h3 class="value-card__title">Ответственность</h3>
+          <p class="value-card__text">Упаковка из переработанных материалов.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Команда</h2>
+      <div class="team-grid">
+
+        <article class="team-card">
+          <div class="team-card__avatar">👨‍💼</div>
+          <h3 class="team-card__name">Константин</h3>
+          <p class="team-card__role">Основатель</p>
+        </article>
+
+        <article class="team-card">
+          <div class="team-card__avatar">👩‍💻</div>
+          <h3 class="team-card__name">Кутлунина Кос</h3>
+          <p class="team-card__role">Разработчик</p>
+        </article>
+
+        <article class="team-card">
+          <div class="team-card__avatar">🧑‍🎨</div>
+          <h3 class="team-card__name">Кут Костя</h3>
+          <p class="team-card__role">Дизайнер</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+
+</body>
+</html>
